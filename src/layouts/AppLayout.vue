@@ -10,18 +10,31 @@ const isSidebarOpen = ref(false);
   <div class="flex h-screen">
     <Sidebar :isOpen="isSidebarOpen" @close="isSidebarOpen = false" />
     <div class="flex-1 flex flex-col overflow-hidden bg-transparent relative">
-      <header class="absolute top-0 left-0 right-0 z-30 flex justify-between items-center p-4 bg-white/30 dark:bg-black/30 bg-opacity-30 backdrop-blur-md border-b border-white/30 dark:border-gray-700 shadow-md md:hidden">
-        
-        <button @click="isSidebarOpen = true" class="p-2 rounded-md text-gray-600 dark:text-gray-300">
+      <!-- Mobile Navbar -->
+      <header class="absolute top-0 left-0 right-0 z-30 flex justify-between items-center p-4 bg-white/30 dark:bg-black/30 bg-opacity-30 backdrop-blur-md border-b border-white/30 dark:border-gray-700 shadow-md lg:hidden">
+        <button @click="isSidebarOpen = true" class="p-2 md:hidden rounded-md text-gray-600 dark:text-gray-300">
           <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        
-        <div class="flex items-center flex-row px-6">
-          <img src="../assets/Logo (1).png" class="w-16 h-16" alt="">
+        <div class="flex items-center justify-start flex-row">
+          <img src="../assets/Logo (1).png" class="w-20 h-20" alt="">
+  
+          <h1 class="text-2xl font-bold text-black dark:text-white">
+            Game<span class="text-teal-500">Spot</span>
+          </h1>
+        </div>
+
+        <div class="font-semibold text-white">
+          <ul class="flex flex-row gap-3">
+            <li>Home</li>
+            <li>Daftar Game</li>
+            <li>Favorite</li>
+          </ul>
         </div>
       </header>
+
+
     
       <main class="flex-1 overflow-x-hidden overflow-y-auto pt-16 md:pt-0 bg-gray-100 dark:bg-black">
         <router-view />

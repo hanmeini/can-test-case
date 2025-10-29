@@ -31,7 +31,7 @@ const emit = defineEmits(['close']);
     class="fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg
            transform transition-transform duration-300 ease-in-out 
            md:translate-x-0 md:static md:inset-0
-           dark:bg-black"
+           dark:bg-black hidden lg:block"
   >
     <div class="flex flex-col h-full">
       <!-- Header Sidebar (Logo) -->

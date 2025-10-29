@@ -1,6 +1,5 @@
 import { http, HttpResponse } from 'msw';
 
-// Contoh data hasil API palsu (bisa disesuaikan)
 export const fakeGameListResponse = {
   count: 1,
   results: [
@@ -17,7 +16,7 @@ export const fakeGameListResponse = {
 };
 
 export const handlers = [
-  http.get('https://api.rawg.io/api/games', () => {
+  http.get('https://api.rawg.io/api/games*', () => {
     return HttpResponse.json(fakeGameListResponse);
   }),
 ];

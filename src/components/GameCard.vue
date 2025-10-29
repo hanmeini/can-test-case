@@ -20,8 +20,9 @@ const genres = computed(() => {
 <template>
   <router-link 
     :to="`/game/${game.id}`" 
-    class="block group rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300"
-  >
+    class="block group rounded-lg overflow-hidden shadow-lg bg-white 
+    hover:shadow-2xl transition-all duration-300
+    dark:bg-gray-800 dark:hover:shadow-gray-700/50" >
     <div class="h-48 w-full overflow-hidden">
       <img
         :src="game.background_image"
@@ -32,18 +33,18 @@ const genres = computed(() => {
     </div>
 
     <div class="p-4">
-      <h2 class="text-xl font-bold text-gray-900 truncate mb-2" :title="game.name">
+      <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 truncate mb-2" :title="game.name">
         {{ game.name }}
       </h2>
       
       <div class="flex justify-between items-center text-sm mb-2">
-        <span class="font-medium text-gray-700">Rilis: {{ releaseYear }}</span>
-        <span class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+        <span class="font-medium text-gray-700 dark:text-gray-300">Rilis: {{ releaseYear }}</span>
+        <span class="inline-flex items-center bg-yellow-100 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-100 text-xs font-semibold px-2.5 py-0.5 rounded-full">
           ⭐ {{ game.rating }}
         </span>
       </div>
 
-      <p class="text-xs text-gray-500 truncate" :title="genres">
+      <p class="text-xs text-gray-500 dark:text-gray-400 truncate" :title="genres">
         {{ genres }}
       </p>
     </div>

@@ -7,17 +7,17 @@ const favoriteStore = useFavoriteStore();
 </script>
 
 <template>
-  <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-    <h1 class="text-4xl font-extrabold text-gray-900 mb-6">❤️ Game Favorit Saya</h1>
+  <div class="container mx-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-black min-h-screen transition-colors">
+    <h1 class="text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-6">❤️ Game Favorit Saya</h1>
 
     <div 
       v-if="favoriteStore.favorites.length === 0" 
-      class="text-center py-20 bg-white shadow rounded-lg"
+      class="text-center py-20 bg-white dark:bg-gray-800 shadow rounded-lg"
     >
-      <p class="text-lg text-gray-600 mb-4">Anda belum menambahkan game ke daftar favorit.</p>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">Anda belum menambahkan game ke daftar favorit.</p>
       <router-link 
         to="/" 
-        class="inline-block bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+        class="inline-block bg-blue-600 dark:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors"
       >
         Cari Game Sekarang
       </router-link>

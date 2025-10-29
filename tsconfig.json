@@ -4,8 +4,7 @@
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "types": ["vite/client"],
-    "ignoreDeprecations": "6.0",
+    "types": ["vite/client", "vitest/globals"],
     "paths": {
     }
   }

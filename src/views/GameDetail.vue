@@ -28,23 +28,23 @@ const handleToggleFavorite = () => {
 </script>
 
 <template>
-  <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-    <router-link to="/" class="inline-block text-blue-600 hover:underline mb-4">
+  <div class="container mx-auto p-4 sm:p-6 lg:p-8 bg-white dark:bg-black min-h-screen transition-colors">
+    <router-link to="/" class="inline-block text-blue-600 hover:underline dark:text-blue-400 mb-4">
       &larr; Kembali ke Daftar Game
     </router-link>
 
     <div v-if="gameStore.isLoading" class="text-center py-20">
-      <p class="text-lg font-semibold text-blue-600">Memuat detail game...</p>
+      <p class="text-lg font-semibold text-blue-600 dark:text-blue-400">Memuat detail game...</p>
     </div>
 
-    <div v-else-if="gameStore.error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg" role="alert">
+    <div v-else-if="gameStore.error" class="bg-red-100 dark:bg-red-900 border border-red-400 dark:border-red-700 text-red-700 dark:text-red-200 px-4 py-3 rounded-lg" role="alert">
       <strong class="font-bold">Gagal memuat detail!</strong>
       <span class="block sm:inline"> {{ gameStore.error }}</span>
     </div>
 
-    <div v-else-if="gameStore.gameDetail" class="bg-white shadow-xl rounded-lg overflow-hidden">
+    <div v-else-if="gameStore.gameDetail" class="bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
       
-      <div class="relative h-64 sm:h-96 bg-gray-900">
+      <div class="relative h-64 sm:h-96 bg-gray-900 dark:bg-gray-900">
         <img 
           :src="gameStore.gameDetail.background_image" 
           :alt="gameStore.gameDetail.name" 
@@ -67,46 +67,46 @@ const handleToggleFavorite = () => {
       <div class="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div class="md:col-span-2">
-          <h2 class="text-2xl font-semibold text-gray-900 mb-3">Deskripsi</h2>
-          <p class="text-gray-700 leading-relaxed whitespace-pre-line">
+          <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Deskripsi</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
             {{ gameStore.gameDetail.description_raw }}
           </p>
         </div>
         
-        <div class="md:col-span-1 bg-gray-50 p-4 rounded-lg">
-          <h3 class="text-xl font-semibold text-gray-900 mb-4 border-b pb-2">Detail</h3>
+        <div class="md:col-span-1 bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 border-b pb-2 border-gray-200 dark:border-gray-700">Detail</h3>
           
           <div class="space-y-3 text-sm">
             <div>
-              <strong>Rating:</strong> 
-              <span class="font-bold text-yellow-600 ml-1">{{ gameStore.gameDetail.rating }} / 5</span>
+              <strong class="text-gray-800 dark:text-white">Rating:</strong> 
+              <span class="font-bold text-yellow-600 dark:text-yellow-300 ml-1">{{ gameStore.gameDetail.rating }} / 5</span>
             </div>
-            <div>
+            <div class="text-gray-800 dark:text-white">
               <strong>Dirilis:</strong> 
               <span class="ml-1">{{ gameStore.gameDetail.released }}</span>
             </div>
             <div>
-              <strong>Genre:</strong>
+              <strong class="text-gray-800 dark:text-white">Genre:</strong>
               <div class="flex flex-wrap gap-1 mt-1">
                 <span v-for="g in gameStore.gameDetail.genres" :key="g.id" 
-                      class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      class="bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-100 text-xs font-medium px-2.5 py-0.5 rounded-full">
                   {{ g.name }}
                 </span>
               </div>
             </div>
             <div>
-              <strong>Platform:</strong>
+              <strong class="text-gray-800 dark:text-white">Platform:</strong>
               <div class="flex flex-wrap gap-1 mt-1">
                 <span v-for="p in gameStore.gameDetail.platforms" :key="p.platform.id" 
-                      class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs font-medium px-2.5 py-0.5 rounded-full">
                   {{ p.platform.name }}
                 </span>
               </div>
             </div>
             <div v-if="gameStore.gameDetail.website">
-              <strong>Website:</strong> 
+              <strong class="text-gray-800 dark:text-white">Website:</strong> 
               <a :href="gameStore.gameDetail.website" target="_blank" rel="noopener noreferrer" 
-                 class="ml-1 text-blue-600 hover:underline break-all">
+                 class="ml-1 text-blue-600 dark:text-blue-400 hover:underline break-all">
                 Kunjungi Situs
               </a>
             </div>

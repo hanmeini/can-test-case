@@ -13,6 +13,9 @@ interface GameState {
   searchQuery: string;
   isLoading: boolean;
   error: string | null;
+  topRatedGames: Game[];
+  mostPlayedGames: Game[];
+  isSliderLoading: boolean;
 }
 
 export const useGameStore = defineStore('game', {
@@ -25,6 +28,9 @@ export const useGameStore = defineStore('game', {
     searchQuery: '',
     isLoading: false,
     error: null,
+    topRatedGames: [],
+    mostPlayedGames: [],
+    isSliderLoading: false,
   }),
 
   getters: {
@@ -71,6 +77,52 @@ export const useGameStore = defineStore('game', {
         this.isLoading = false;
       }
     },
+
+    /**
+     * @name fetchTopRatedGames
+     * @description Mengambil 10 game dengan rating tertinggi untuk slider
+     */
+        async fetchTopRatedGames() {
+          this.isSliderLoading = true;
+          try {
+            const params = new URLSearchParams({
+              key: RAWG_API_KEY,
+              page: '1',
+              page_size: '10',
+              ordering: '-rating',
+            });
+            const url = `${RAWG_BASE_URL}/games?${params.toString()}`;
+            const response = await axios.get<GameListResponse>(url);
+            this.topRatedGames = response.data.results;
+          } catch (err) {
+            console.error('Gagal fetch Top Rated:', err);
+          } finally {
+            this.isSliderLoading = false;
+          }
+        },
+
+        /**
+     * @name fetchMostPlayedGames
+     * @description Mengambil 10 game paling populer (sering dimainkan/ditambahkan)
+     */
+        async fetchMostPlayedGames() {
+          this.isSliderLoading = true;
+          try {
+            const params = new URLSearchParams({
+              key: RAWG_API_KEY,
+              page: '1',
+              page_size: '10',
+              ordering: '-added', 
+            });
+            const url = `${RAWG_BASE_URL}/games?${params.toString()}`;
+            const response = await axios.get<GameListResponse>(url);
+            this.mostPlayedGames = response.data.results;
+          } catch (err) {
+            console.error('Gagal fetch Most Played:', err);
+          } finally {
+            this.isSliderLoading = false;
+          }
+        },
 
     /**
      * @name setSearchQuery

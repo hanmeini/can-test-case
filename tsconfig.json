@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "strict": true,
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "types": ["vite/client", "vitest/globals"],
     "paths": {
+      "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules"]
 }

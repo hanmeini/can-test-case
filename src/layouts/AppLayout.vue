@@ -208,8 +208,8 @@ const isActive = (path: string) => {
               <div class="w-full md:w-1/4 lg:w-1/3">
                 <h3 class="font-semibold text-gray-800 dark:text-gray-100 mb-3 uppercase tracking-wide">Tautan</h3>
                 <ul class="space-y-2 text-sm">
-                  <li><a href="" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">GitHub Repository</a></li>
-                  <li><a href="" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">LinkedIn</a></li>
+                  <li><a href="https://github.com/hanmeini/can-test-case.git" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">GitHub Repository</a></li>
+                  <li><a href="https://hanmeini.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400">Portofolio</a></li>
                 </ul>
               </div>
             </div>
